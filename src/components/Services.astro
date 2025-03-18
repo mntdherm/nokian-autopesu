@@ -1,0 +1,101 @@
+---
+const services = [
+  {
+    title: "Käsinpesu",
+    description: "Hellävarainen ja perusteellinen käsinpesu, joka sopii kaikille autoille. Puhdistamme autosi ulkopinnat huolellisesti ilman naarmuja.",
+    icon: "🧴"
+  },
+  {
+    title: "Premium-pesu",
+    description: "Täydellinen pesu sisältää käsinpesun, renkaiden puhdistuksen, sisätilojen imuroinnin ja kojelaudan puhdistuksen.",
+    icon: "✨"
+  },
+  {
+    title: "Sisäpuhdistus",
+    description: "Perusteellinen sisätilojen puhdistus sisältää imuroinnin, pintapuhdistuksen ja raikastuksen. Poistamme tahrat ja hajut.",
+    icon: "🧹"
+  },
+  {
+    title: "Vahaukset",
+    description: "Korkealaatuinen vahaus suojaa maalipintaa ja antaa autolle upean kiillon. Tarjoamme erilaisia vahoja eri tarpeisiin.",
+    icon: "🚘"
+  },
+  {
+    title: "Kiillotus",
+    description: "Poistamme pienet naarmut ja palautamme maalipinnan kiillon ammattitaitoisella kiillotuksella.",
+    icon: "🔆"
+  },
+  {
+    title: "Yritysasiakkaat",
+    description: "Räätälöidyt palvelut yrityksille ja ammattiliikenteelle. Kysy tarjousta useamman auton pesusta tai säännöllisestä huollosta.",
+    icon: "🏢"
+  }
+];
+---
+
+<section id="palvelut" class="services">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Palvelumme</h2>
+      <p>Tarjoamme monipuolisia autopesun ja -puhdistuksen palveluita Nokialla</p>
+    </div>
+    
+    <div class="services-grid">
+      {services.map(service => (
+        <div class="service-card">
+          <div class="service-icon">{service.icon}</div>
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    background-color: var(--color-light);
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .service-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .service-card h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+  
+  .service-card p {
+    color: var(--color-text);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

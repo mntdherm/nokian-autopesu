@@ -1,0 +1,210 @@
+---
+---
+
+<section id="yhteystiedot" class="contact">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Yhteystiedot</h2>
+      <p>Ota yhteyttä tai tule käymään</p>
+    </div>
+    
+    <div class="contact-content">
+      <div class="contact-info">
+        <h3>Löydät meidät</h3>
+        <div class="info-items">
+          <div class="info-item">
+            <span class="info-icon">📍</span>
+            <div>
+              <strong>Osoite</strong>
+              <p>Pikkukorventie 34 F, 37150 Nokia</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <span class="info-icon">📱</span>
+            <div>
+              <strong>              <strong>Puhelin</strong>
+              <p><a href="tel:+358401234567">040 123 4567</a></p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <span class="info-icon">✉️</span>
+            <div>
+              <strong>Sähköposti</strong>
+              <p><a href="mailto:info@nokianautopesu.fi">info@nokianautopesu.fi</a></p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <span class="info-icon">🕒</span>
+            <div>
+              <strong>Aukioloajat</strong>
+              <p>Ma-Pe: 8:00 - 18:00</p>
+              <p>La: 9:00 - 16:00</p>
+              <p>Su: Suljettu</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1895.8916352908986!2d23.501752!3d61.480192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x468ed7e5316f38dd%3A0x21db14e5f0913aae!2sPikkukorventie%2034%2C%2037150%20Nokia!5e0!3m2!1sfi!2sfi!4v1652887659826!5m2!1sfi!2sfi" 
+            width="100%" 
+            height="300" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+      
+      <div class="contact-form">
+        <h3>Ota yhteyttä</h3>
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="name">Nimi</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Sähköposti</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Puhelinnumero</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+          
+          <div class="form-group">
+            <label for="service">Palvelu</label>
+            <select id="service" name="service">
+              <option value="">Valitse palvelu...</option>
+              <option value="peruspesu">Peruspesu</option>
+              <option value="premium">Premium-pesu</option>
+              <option value="tayspesu">Täyspesu</option>
+              <option value="muu">Muu palvelu</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Viesti</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          
+          <button type="submit" class="btn">Lähetä viesti</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    background-color: var(--color-background);
+  }
+  
+  .contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  
+  .contact-info, .contact-form {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+  }
+  
+  .contact-info h3, .contact-form h3 {
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+  }
+  
+  .info-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .info-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .info-icon {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+  }
+  
+  .map-container {
+    margin-top: 2rem;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+  }
+  
+  /* Form styles */
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  
+  input, select, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .contact-content {
+      grid-template-columns: 1fr;
+    }
+    
+    .contact-form {
+      order: 2;
+    }
+    
+    .contact-info {
+      order: 1;
+    }
+  }
+</style>
+
+<script>
+  // Simple form validation and handling
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // In a real implementation, you would send this data to a server
+      // For now, we'll just show an alert
+      alert('Kiitos viestistäsi! Olemme sinuun yhteydessä pian.');
+      contactForm.reset();
+    });
+  }
+</script>

@@ -1,0 +1,190 @@
+---
+---
+
+<header class="header">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">
+        <a href="/">
+          <h1>Nokia<span>Autopesu</span></h1>
+        </a>
+      </div>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="/#palvelut">Palvelut</a></li>
+          <li><a href="/#hinnasto">Hinnasto</a></li>
+          <li><a href="/#meista">Meistä</a></li>
+          <li><a href="/#yhteystiedot">Yhteystiedot</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-nav-toggle" aria-label="Valikko">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+  const navList = document.querySelector('.nav-list');
+
+  mobileNavToggle?.addEventListener('click', () => {
+    mobileNavToggle.classList.toggle('active');
+    navList?.classList.toggle('active');
+  });
+
+  // Sulje mobiilivalikko kun linkkiä klikataan
+  const navLinks = document.querySelectorAll('.nav-list a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNavToggle?.classList.remove('active');
+      navList?.classList.remove('active');
+    });
+  });
+</script>
+
+<style>
+  .header {
+    background-color: var(--color-light);
+    box-shadow: var(--box-shadow);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+  }
+  
+  .logo a {
+    display: flex;
+    align-items: center;
+    color: var(--color-dark);
+  }
+  
+  .logo h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 700;
+  }
+  
+  .logo span {
+    color: var(--color-primary);
+    margin-left: 4px;
+  }
+  
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+  }
+  
+  .nav-list a {
+    color: var(--color-text);
+    font-weight: 500;
+    position: relative;
+  }
+  
+  .nav-list a:hover {
+    color: var(--color-primary);
+  }
+  
+  .nav-list a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease;
+  }
+  
+  .nav-list a:hover::after {
+    width: 100%;
+  }
+  
+  .mobile-nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    position: relative;
+  }
+  
+  .hamburger, 
+  .hamburger::before, 
+  .hamburger::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-text);
+    transition: all 0.3s ease;
+  }
+  
+  .hamburger {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .hamburger::before {
+    content: '';
+    top: -8px;
+  }
+  
+  .hamburger::after {
+    content: '';
+    bottom: -8px;
+  }
+  
+  .mobile-nav-toggle.active .hamburger {
+    background-color: transparent;
+  }
+  
+  .mobile-nav-toggle.active .hamburger::before {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .mobile-nav-toggle.active .hamburger::after {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  @media (max-width: 768px) {
+    .mobile-nav-toggle {
+      display: block;
+      z-index: 1001;
+    }
+    
+    .nav-list {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      height: 100vh;
+      background-color: var(--color-light);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: right 0.3s ease;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      gap: 2rem;
+    }
+    
+    .nav-list.active {
+      right: 0;
+    }
+    
+    .nav-list a {
+      font-size: 1.2rem;
+    }
+  }
+</style>

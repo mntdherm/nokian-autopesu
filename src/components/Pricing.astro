@@ -1,0 +1,207 @@
+---
+const pricingOptions = [
+  {
+    name: "Peruspesu",
+    price: "25€",
+    features: [
+      "Käsinpesu laadukkailla pesuaineilla",
+      "Ulkopintojen kuivaus",
+      "Renkaiden puhdistus",
+      "Ovenkarmien pyyhintä"
+    ]
+  },
+  {
+    name: "Premium-pesu",
+    price: "45€",
+    popular: true,
+    features: [
+      "Kaikki peruspesun ominaisuudet",
+      "Sisätilojen imurointi",
+      "Kojelaudan ja sisäpintojen puhdistus",
+      "Ikkunoiden pesu sisältä ja ulkoa",
+      "Rengaskiilto"
+    ]
+  },
+  {
+    name: "Täyspesu",
+    price: "75€",
+    features: [
+      "Kaikki Premium-pesun ominaisuudet",
+      "Kevyt vahaus",
+      "Verhoilun puhdistus",
+      "Moottoripesun",
+      "Ilmanraikastin"
+    ]
+  }
+];
+
+const additionalServices = [
+  { name: "Kiillotus", price: "alkaen 80€" },
+  { name: "Sisäpuhdistus", price: "alkaen 35€" },
+  { name: "Vahaus", price: "alkaen 50€" },
+  { name: "Hajunpoisto", price: "alkaen 30€" },
+  { name: "Moottoripesu", price: "25€" },
+  { name: "Maalipinnan suojaus", price: "alkaen 120€" }
+];
+---
+
+<section id="hinnasto" class="pricing">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Hinnasto</h2>
+      <p>Valitse sinulle sopivin pesuvaihtoehto</p>
+    </div>
+    
+    <div class="pricing-options">
+      {pricingOptions.map(option => (
+        <div class={`pricing-card ${option.popular ? 'popular' : ''}`}>
+          {option.popular && <div class="popular-badge">Suosittu</div>}
+          <h3>{option.name}</h3>
+          <div class="price">{option.price}</div>
+          <ul class="features">
+            {option.features.map(feature => (
+              <li>{feature}</li>
+            ))}
+          </ul>
+          <a href="#yhteystiedot" class="btn">Varaa pesu</a>
+        </div>
+      ))}
+    </div>
+    
+    <div class="additional-services">
+      <h3>Muut palvelut</h3>
+      <div class="services-list">
+        {additionalServices.map(service => (
+          <div class="service-item">
+            <span class="service-name">{service.name}</span>
+            <span class="service-price">{service.price}</span>
+          </div>
+        ))}
+      </div>
+      <p class="pricing-note">Hinnat voivat vaihdella auton koon ja likaisuuden mukaan. Kysy tarjousta suuremmille autoille.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing {
+    background-color: var(--color-background);
+  }
+  
+  .pricing-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .pricing-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+  
+  .pricing-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .pricing-card.popular {
+    border: 2px solid var(--color-primary);
+    transform: scale(1.05);
+  }
+  
+  .pricing-card.popular:hover {
+    transform: scale(1.05) translateY(-5px);
+  }
+  
+  .popular-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  
+  .pricing-card h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+  
+  .price {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--color-dark);
+  }
+  
+  .features {
+    list-style: none;
+    margin-bottom: 2rem;
+  }
+  
+  .features li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .features li:last-child {
+    border-bottom: none;
+  }
+  
+  .additional-services {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+  }
+  
+  .additional-services h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+  }
+  
+  .services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  
+  .service-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px dashed #eee;
+  }
+  
+  .service-price {
+    font-weight: 500;
+  }
+  
+  .pricing-note {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 2rem;
+    font-style: italic;
+  }
+  
+  @media (max-width: 768px) {
+    .pricing-card.popular {
+      transform: scale(1);
+    }
+    
+    .pricing-card.popular:hover {
+      transform: translateY(-5px);
+    }
+  }
+</style>

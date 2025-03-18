@@ -1,0 +1,109 @@
+---
+const testimonials = [
+  {
+    name: "Matti Virtanen",
+    text: "Erinomaista palvelua! Auto kiiltää kuin uusi pesun jälkeen. Suosittelen lämpimästi kaikille, jotka haluavat autonsa puhdistettavan huolellisesti ja ammattitaidolla.",
+    rating: 5
+  },
+  {
+    name: "Liisa Korhonen",
+    text: "Loistava hinta-laatusuhde. Käsinpesu oli perusteellinen ja nopea. Henkilökunta oli ystävällistä ja selitti kaikki työvaiheet selkeästi. Tulen ehdottomasti uudestaan!",
+    rating: 5
+  },
+  {
+    name: "Jukka Mäkinen",
+    text: "Olen käyttänyt Nokia Autopesun palveluita jo pidemmän aikaa. Työn laatu on aina erinomaista ja henkilökunta osaa hommansa. Auton sisäpuhdistus on erityisen hyvä.",
+    rating: 4
+  }
+];
+---
+
+<section class="testimonials">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Mitä asiakkaamme sanovat</h2>
+      <p>Tyytyväiset asiakkaat ovat meille tärkeitä</p>
+    </div>
+    
+    <div class="testimonials-slider">
+      {testimonials.map(testimonial => (
+        <div class="testimonial-card">
+          <div class="rating">
+            {Array(5).fill(0).map((_, i) => (
+              i < testimonial.rating 
+                ? <span class="star filled">★</span>
+                : <span class="star">☆</span>
+            ))}
+          </div>
+          <p class="testimonial-text">"{testimonial.text}"</p>
+          <p class="testimonial-name">- {testimonial.name}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials {
+    background-color: var(--color-light);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .testimonials::before {
+    content: '"';
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    font-size: 15rem;
+    font-family: serif;
+    color: rgba(0, 0, 0, 0.03);
+  }
+  
+  .testimonials-slider {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .testimonial-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    position: relative;
+  }
+  
+  .rating {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .star {
+    color: #ccc;
+  }
+  
+  .star.filled {
+    color: #FFD700;
+  }
+  
+  .testimonial-text {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+  }
+  
+  .testimonial-name {
+    font-weight: 600;
+    color: var(--color-primary);
+    text-align: right;
+    margin-bottom: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .testimonials-slider {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

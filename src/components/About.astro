@@ -1,0 +1,108 @@
+---
+---
+
+<section id="meista" class="about">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Tietoa meistä</h2>
+      <p>Pitkän kokemuksen omaava autopesualan ammattilainen Nokialla</p>
+    </div>
+    
+    <div class="about-content">
+      <div class="about-image">
+        <img src="/images/about-image.jpg" alt="Nokia Autopesu työntekijä pesemässä autoa" />
+      </div>
+      <div class="about-text">
+        <h3>Laadukasta palvelua vuodesta 2023</h3>
+        <p>
+          Nokia Autopesu on perustettu intohimosta puhtaisiin autoihin ja tyytyväisiin asiakkaisiin. Olemme erikoistuneet laadukkaaseen käsinpesuun, joka takaa parhaan lopputuloksen vahingoittamatta autosi pintoja.
+        </p>
+        <p>
+          Käytämme vain korkealaatuisia pesuaineita ja välineitä, jotka ovat hellävaraisia autollesi mutta tehokkaita lian poistamisessa. Jokainen auto saa meiltä yksilöllistä huomiota ja huolenpitoa.
+        </p>
+        <p>
+          Tavoitteenamme on ylittää odotuksesi joka kerta – oli kyseessä sitten nopea peruspesu tai perusteellisempi käsittely. Teemme kaikkemme, jotta autosi näyttää ja tuntuu uudelta pesun jälkeen.
+        </p>
+        
+        <div class="about-features">
+          <div class="feature">
+            <span class="feature-icon">🔍</span>
+            <span class="feature-text">Tarkka työn laatu</span>
+          </div>
+          <div class="feature">
+            <span class="feature-icon">🌿</span>
+            <span class="feature-text">Ympäristöystävälliset pesuaineet</span>
+          </div>
+          <div class="feature">
+            <span class="feature-icon">⏱️</span>
+            <span class="feature-text">Nopea ja tehokas palvelu</span>
+          </div>
+          <div class="feature">
+            <span class="feature-icon">👨‍🔧</span>
+            <span class="feature-text">Ammattitaitoinen henkilökunta</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    background-color: var(--color-light);
+  }
+  
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  
+  .about-image img {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+  }
+  
+  .about-text h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+  
+  .about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .feature-icon {
+    font-size: 1.5rem;
+  }
+  
+  .feature-text {
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  
+  @media (max-width: 992px) {
+    .about-content {
+      grid-template-columns: 1fr;
+    }
+    
+    .about-image {
+      order: 1;
+    }
+    
+    .about-text {
+      order: 2;
+    }
+  }
+</style>
